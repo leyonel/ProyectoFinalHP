@@ -5,6 +5,51 @@ class VistaPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextButton(
+              onPressed: () {},
+              child: const Text("Personajes de Harry Potter")),
+          const SizedBox(height: 20),
+          TextButton(onPressed: () {}, child: const Text("Hechizos")),
+          const SizedBox(height: 20),
+          Container(
+            color: Colors.black12,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                const Text(
+                  "Estudiantes",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                TextButton(onPressed: () {}, child: const Text("Gryffindor")),
+                TextButton(onPressed: () {}, child: const Text("Slytherin")),
+                TextButton(onPressed: () {}, child: const Text("Hafflepuff")),
+                TextButton(onPressed: () {}, child: const Text("Ravenclaw")),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            color: Colors.black12,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                const Text(
+                  "Empleados",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                TextButton(onPressed: () {}, child: const Text("Gryffindor")),
+                TextButton(onPressed: () {}, child: const Text("Slytherin")),
+                TextButton(onPressed: () {}, child: const Text("Hafflepuff")),
+                TextButton(onPressed: () {}, child: const Text("Ravenclaw")),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
