@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyecto_hp_final/caracteristicas/bloc.dart';
+import 'package:proyecto_hp_final/caracteristicas/vistas/principal.dart';
 
 void main() {
   runApp(const AplicacionBloc());
@@ -29,6 +30,18 @@ class Vista extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text("API Harry Potter")),
+        body: Builder(builder: ((context) {
+          var estado = context.watch<HPBloc>().state;
+          if (estado is PaginaPrincipal) {
+            return const VistaPrincipal();
+          }
+          return const Center(child: Text("huye"));
+        })),
+      ),
+    );
   }
 }
