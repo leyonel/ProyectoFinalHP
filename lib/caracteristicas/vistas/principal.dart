@@ -11,19 +11,23 @@ class VistaPrincipal extends StatelessWidget {
         children: [
           TextButton(
               onPressed: () {},
-              child: const Text("Personajes de Harry Potter")),
+              child: const Text("Personajes de Harry Potter",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),
           const SizedBox(height: 20),
-          TextButton(onPressed: () {}, child: const Text("Hechizos")),
+          TextButton(
+              onPressed: () {},
+              child: const Text("Hechizos",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),
           const SizedBox(height: 20),
           Container(
-            color: Colors.black12,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.black12),
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                const Text(
-                  "Estudiantes",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
+                const Text("Estudiantes",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                 TextButton(onPressed: () {}, child: const Text("Gryffindor")),
                 TextButton(onPressed: () {}, child: const Text("Slytherin")),
                 TextButton(onPressed: () {}, child: const Text("Hafflepuff")),
@@ -33,14 +37,14 @@ class VistaPrincipal extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Container(
-            color: Colors.black12,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.black12),
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                const Text(
-                  "Empleados",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
+                const Text("Empleados",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                 TextButton(onPressed: () {}, child: const Text("Gryffindor")),
                 TextButton(onPressed: () {}, child: const Text("Slytherin")),
                 TextButton(onPressed: () {}, child: const Text("Hafflepuff")),
