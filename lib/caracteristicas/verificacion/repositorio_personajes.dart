@@ -6,22 +6,21 @@ import 'package:proyecto_hp_final/dominio/problemas.dart';
 
 abstract class RepositorioPersonajes {
   Either<Problema, List<Personaje>> obtenerTodosLosPersonajes(String documento);
-  Either<Problema, List<Personaje>> obtenerStaffDeCasa(
-      String documento, String casa);
+  Either<Problema, List<Personaje>> obtenerStaffDeCasa(String documentoCasa);
   Either<Problema, List<Personaje>> obtenerEstudiantesDeCasa(
-      String documento, String casa);
+      String documentoCasa);
 }
 
 class RepositorioPersonajesOffline extends RepositorioPersonajes {
   @override
   Either<Problema, List<Personaje>> obtenerEstudiantesDeCasa(
-      String documento, String casa) {
+      String documentoCasa) {
     try {
       JsonDecoder decoder = const JsonDecoder();
-      final jsonPersonajes = decoder.convert(documento);
+      final jsonPersonajes = decoder.convert(documentoCasa);
       List<Personaje> personajes = [];
       for (var personaje in jsonPersonajes) {
-        if (personaje["casa"] == casa && personaje["hogwartsStudent"] == true) {
+        if (personaje["hogwartsStudent"] == true) {
           personajes.add(Personaje.constructor(
               nombre: personaje["name"],
               nombreA: personaje["alternate_names"],
@@ -29,7 +28,7 @@ class RepositorioPersonajesOffline extends RepositorioPersonajes {
               genero: personaje["gender"],
               casa: personaje["house"],
               fechaDeNacimiento: personaje["dateOfBirth"],
-              anoNacimiento: personaje["yearOfBirth"],
+              anoNacimiento: personaje["yearOfBirth"] ?? 0,
               esMago: personaje["wizard"],
               linaje: personaje["ancestry"],
               colorDeOjos: personaje["eyeColour"],
@@ -51,14 +50,13 @@ class RepositorioPersonajesOffline extends RepositorioPersonajes {
   }
 
   @override
-  Either<Problema, List<Personaje>> obtenerStaffDeCasa(
-      String documento, String casa) {
+  Either<Problema, List<Personaje>> obtenerStaffDeCasa(String documentoCasa) {
     try {
       JsonDecoder decoder = const JsonDecoder();
-      final jsonPersonajes = decoder.convert(documento);
+      final jsonPersonajes = decoder.convert(documentoCasa);
       List<Personaje> personajes = [];
       for (var personaje in jsonPersonajes) {
-        if (personaje["casa"] == casa && personaje["hogwartsStaff"] == true) {
+        if (personaje["hogwartsStaff"] == true) {
           personajes.add(Personaje.constructor(
               nombre: personaje["name"],
               nombreA: personaje["alternate_names"],
@@ -66,7 +64,7 @@ class RepositorioPersonajesOffline extends RepositorioPersonajes {
               genero: personaje["gender"],
               casa: personaje["house"],
               fechaDeNacimiento: personaje["dateOfBirth"],
-              anoNacimiento: personaje["yearOfBirth"],
+              anoNacimiento: personaje["yearOfBirth"] ?? 0,
               esMago: personaje["wizard"],
               linaje: personaje["ancestry"],
               colorDeOjos: personaje["eyeColour"],
