@@ -15,7 +15,7 @@ class Personaje {
   final bool esEstudiante;
   final bool esStaff;
   final String actor;
-  final Map actoresAlternativos;
+  final Map actoresA;
   final bool estaVivo;
   final String imagen;
 
@@ -36,7 +36,7 @@ class Personaje {
       this.esEstudiante,
       this.esStaff,
       this.actor,
-      this.actoresAlternativos,
+      this.actoresA,
       this.estaVivo,
       this.imagen);
 }
