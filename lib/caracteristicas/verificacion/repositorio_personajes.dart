@@ -102,7 +102,7 @@ class RepositorioPersonajesOffline extends RepositorioPersonajes {
             genero: personaje["gender"],
             casa: personaje["house"],
             fechaDeNacimiento: personaje["dateOfBirth"],
-            anoNacimiento: personaje["yearOfBirth"],
+            anoNacimiento: personaje["yearOfBirth"] ?? 0,
             esMago: personaje["wizard"],
             linaje: personaje["ancestry"],
             colorDeOjos: personaje["eyeColour"],

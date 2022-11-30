@@ -1,6 +1,6 @@
 class Personaje {
   final String nombre;
-  final Map nombreA;
+  final dynamic nombreA;
   final String especie;
   final String genero;
   final String casa;
@@ -10,18 +10,18 @@ class Personaje {
   final String linaje;
   final String colorDeOjos;
   final String colorDeCabello;
-  final Map varita;
+  final dynamic varita;
   final String patronus;
   final bool esEstudiante;
   final bool esStaff;
   final String actor;
-  final Map actoresA;
+  final dynamic actoresA;
   final bool estaVivo;
   final String imagen;
 
   factory Personaje.constructor(
       {required String nombre,
-      required Map nombreA,
+      required dynamic nombreA,
       required String especie,
       required String genero,
       required String casa,
@@ -31,12 +31,12 @@ class Personaje {
       required String linaje,
       required String colorDeOjos,
       required String colorDeCabello,
-      required Map varita,
+      required dynamic varita,
       required String patronus,
       required bool esEstudiante,
       required bool esStaff,
       required String actor,
-      required Map actoresA,
+      required dynamic actoresA,
       required bool estaVivo,
       required String imagen}) {
     nombre == "" ? nombre = "No encontrado" : null;
