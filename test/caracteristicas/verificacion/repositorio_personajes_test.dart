@@ -48,4 +48,21 @@ void main() {
       });
     });
   });
+
+  group("Pruebas repositorio para staff", () {
+    test("Hay en total 3 profesores en Gryffindor", () {
+      RepositorioPersonajes repositorio = RepositorioPersonajesOffline();
+      final resultado = repositorio.obtenerStaffDeCasa(documentoGryffindor);
+      resultado.match((l) => null, (r) {
+        expect(r.length, equals(3));
+      });
+    });
+    test("Hay un total de 3 profesores en Slytherin", () {
+      RepositorioPersonajes repositorio = RepositorioPersonajesOffline();
+      final resultado = repositorio.obtenerStaffDeCasa(documentoSlytherin);
+      resultado.match((l) => null, (r) {
+        expect(r.length, equals(3));
+      });
+    });
+  });
 }
