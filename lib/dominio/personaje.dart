@@ -19,6 +19,59 @@ class Personaje {
   final bool estaVivo;
   final String imagen;
 
+  factory Personaje.constructor(
+      {required String nombre,
+      required Map nombreA,
+      required String especie,
+      required String genero,
+      required String casa,
+      required String fechaDeNacimiento,
+      required int anoNacimiento,
+      required bool esMago,
+      required String linaje,
+      required String colorDeOjos,
+      required String colorDeCabello,
+      required Map varita,
+      required String patronus,
+      required bool esEstudiante,
+      required bool esStaff,
+      required String actor,
+      required Map actoresA,
+      required bool estaVivo,
+      required String imagen}) {
+    nombre == "" ? nombre = "No encontrado" : null;
+    especie == "" ? especie = "No encontrado" : null;
+    genero == "" ? genero = "No encontrado" : null;
+    casa == "" ? casa = "No encontrado" : null;
+    fechaDeNacimiento == "" ? fechaDeNacimiento = "No encontrado" : null;
+    linaje == "" ? linaje = "No encontrado" : null;
+    colorDeOjos == "" ? colorDeOjos = "No encontrado" : null;
+    colorDeCabello == "" ? colorDeCabello = "No encontrado" : null;
+    patronus == "" ? patronus = "No encontrado" : null;
+    actor == "" ? actor = "No encontrado" : null;
+
+    return Personaje._(
+        nombre,
+        nombreA,
+        especie,
+        genero,
+        casa,
+        fechaDeNacimiento,
+        anoNacimiento,
+        esMago,
+        linaje,
+        colorDeOjos,
+        colorDeCabello,
+        varita,
+        patronus,
+        esEstudiante,
+        esStaff,
+        actor,
+        actoresA,
+        estaVivo,
+        imagen);
+  }
+
   Personaje._(
       this.nombre,
       this.nombreA,
