@@ -44,9 +44,19 @@ class VerHechizos extends EstadoHP {
   VerHechizos({required this.hechizos});
 }
 
-class VerEstudiantes extends EstadoHP {}
+class VerEstudiantes extends EstadoHP {
+  final List<Personaje> estudiantes;
+  final String casa;
 
-class VerProfesores extends EstadoHP {}
+  VerEstudiantes({required this.estudiantes, required this.casa});
+}
+
+class VerProfesores extends EstadoHP {
+  final List<Personaje> staff;
+  final String casa;
+
+  VerProfesores({required this.staff, required this.casa});
+}
 
 class HuboProblemas extends EstadoHP {
   final Problema problema;
@@ -103,7 +113,7 @@ class HPBloc extends Bloc<EventoHP, EstadoHP> {
         personajes.match((l) {
           emit(HuboProblemas(problema: l));
         }, (r) {
-          emit(VerPersonajes(personajes: r));
+          emit(VerEstudiantes(casa: event.casa, estudiantes: r));
         });
       } catch (e) {
         emit(HuboProblemas(problema: RespuestaAPIFallo()));
@@ -119,7 +129,7 @@ class HPBloc extends Bloc<EventoHP, EstadoHP> {
         personajes.match((l) {
           emit(HuboProblemas(problema: l));
         }, (r) {
-          emit(VerPersonajes(personajes: r));
+          emit(VerProfesores(casa: event.casa, staff: r));
         });
       } catch (e) {
         emit(HuboProblemas(problema: RespuestaAPIFallo()));
