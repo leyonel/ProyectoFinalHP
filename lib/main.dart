@@ -32,16 +32,13 @@ class Vista extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text("API Harry Potter")),
-        body: Builder(builder: ((context) {
-          var estado = context.watch<HPBloc>().state;
-          if (estado is PaginaPrincipal) {
-            return const VistaPrincipal();
-          }
-          return const Center(child: Text("huye"));
-        })),
-      ),
+      home: Builder(builder: ((context) {
+        var estado = context.watch<HPBloc>().state;
+        if (estado is PaginaPrincipal) {
+          return const VistaPrincipal();
+        }
+        return const Center(child: Text("huye"));
+      })),
     );
   }
 }
