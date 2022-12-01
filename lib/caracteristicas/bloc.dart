@@ -92,5 +92,22 @@ class HPBloc extends Bloc<EventoHP, EstadoHP> {
         emit(HuboProblemas(problema: RespuestaAPIFallo()));
       }
     });
+    on<IrAEstudiantes>((event, emit) async {
+      try {
+        String enlace =
+            "https://hp-api.onrender.com/api/characters/house/${event.casa}";
+        final respuestaJson = await http.get(Uri.parse(enlace));
+        String jsonPersonajes = respuestaJson.body;
+        final personajes =
+            repositorioP.obtenerEstudiantesDeCasa(jsonPersonajes);
+        personajes.match((l) {
+          emit(HuboProblemas(problema: l));
+        }, (r) {
+          emit(VerPersonajes(personajes: r));
+        });
+      } catch (e) {
+        emit(HuboProblemas(problema: RespuestaAPIFallo()));
+      }
+    });
   }
 }
