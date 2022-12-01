@@ -1,5 +1,6 @@
 import 'package:proyecto_hp_final/caracteristicas/verificacion/repositorio_personajes.dart';
 import 'package:test/test.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   String documento =
@@ -62,6 +63,26 @@ void main() {
       final resultado = repositorio.obtenerStaffDeCasa(documentoSlytherin);
       resultado.match((l) => null, (r) {
         expect(r.length, equals(3));
+      });
+    });
+  });
+  group("Pruebas ara el repositorio online", () {
+    test("No hay error al formar los personajes", () async {
+      RepositorioPersonajes repositorio = RepositorioPersonajesOffline();
+      final respuestaJson = await http
+          .get(Uri.parse('https://hp-api.onrender.com/api/characters'));
+      String jsonPersonajes = respuestaJson.body;
+      final resultado = repositorio.obtenerTodosLosPersonajes(jsonPersonajes);
+      expect(resultado.isRight(), true);
+    });
+    test("En total hay 403 personajes", () async {
+      RepositorioPersonajes repositorio = RepositorioPersonajesOffline();
+      final respuestaJson = await http
+          .get(Uri.parse('https://hp-api.onrender.com/api/characters'));
+      String jsonPersonajes = respuestaJson.body;
+      final resultado = repositorio.obtenerTodosLosPersonajes(jsonPersonajes);
+      resultado.match((l) => null, (r) {
+        expect(r.length, equals(403));
       });
     });
   });
