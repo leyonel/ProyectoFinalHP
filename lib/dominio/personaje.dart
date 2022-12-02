@@ -55,6 +55,8 @@ class Personaje {
 
     imagenNuevo = imagenNuevo + jpgPersonaje;
 
+    if (imagen == "") imagenNuevo = "";
+
     return Personaje._(
         nombre,
         nombreA,
