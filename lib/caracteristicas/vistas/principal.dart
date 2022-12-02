@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:proyecto_hp_final/caracteristicas/bloc.dart';
 
 class VistaPrincipal extends StatelessWidget {
   const VistaPrincipal({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var bloc = context.read<HPBloc>();
     return Scaffold(
       appBar: AppBar(title: const Text("API Harry Potter")),
       body: Center(
@@ -12,7 +15,9 @@ class VistaPrincipal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  bloc.add(IrATodosLosPersonajes());
+                },
                 child: const Text("Personajes de Harry Potter",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),

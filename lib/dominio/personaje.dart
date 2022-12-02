@@ -50,6 +50,11 @@ class Personaje {
     patronus == "" ? patronus = "No encontrado" : null;
     actor == "" ? actor = "No encontrado" : null;
 
+    String imagenNuevo = "https://hp-api.onrender.com/images/";
+    String jpgPersonaje = imagen.split("/").last;
+
+    imagenNuevo = imagenNuevo + jpgPersonaje;
+
     return Personaje._(
         nombre,
         nombreA,
@@ -69,7 +74,7 @@ class Personaje {
         actor,
         actoresA,
         estaVivo,
-        imagen);
+        imagenNuevo);
   }
 
   Personaje._(

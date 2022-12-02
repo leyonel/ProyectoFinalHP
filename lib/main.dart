@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyecto_hp_final/caracteristicas/bloc.dart';
+import 'package:proyecto_hp_final/caracteristicas/vistas/personajes.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/principal.dart';
 
 void main() {
@@ -36,6 +37,9 @@ class Vista extends StatelessWidget {
         var estado = context.watch<HPBloc>().state;
         if (estado is PaginaPrincipal) {
           return const VistaPrincipal();
+        }
+        if (estado is VerPersonajes) {
+          return ListaPersonajes(personajes: estado.personajes);
         }
         return const Center(child: Text("huye"));
       })),

@@ -78,7 +78,7 @@ class HPBloc extends Bloc<EventoHP, EstadoHP> {
         String jsonPersonajes = respuestaJson.body;
         final personajes =
             repositorioP.obtenerTodosLosPersonajes(jsonPersonajes);
-        personajes.match((l) {
+        return personajes.match((l) {
           emit(HuboProblemas(problema: l));
         }, (r) {
           emit(VerPersonajes(personajes: r));
@@ -93,7 +93,7 @@ class HPBloc extends Bloc<EventoHP, EstadoHP> {
             await http.get(Uri.parse('https://hp-api.onrender.com/api/spells'));
         String jsonHechizos = respuestaJson.body;
         final hechizos = repositorioH.obtenerHechizos(jsonHechizos);
-        hechizos.match((l) {
+        return hechizos.match((l) {
           emit(HuboProblemas(problema: l));
         }, (r) {
           emit(VerHechizos(hechizos: r));
