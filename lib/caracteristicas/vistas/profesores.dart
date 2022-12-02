@@ -32,7 +32,22 @@ class ListaStaff extends StatelessWidget {
                         ? const Icon(Icons.error)
                         : Image.network(staff[index].imagen),
                     title: Text(staff[index].nombre),
-                    subtitle: Text(staff[index].casa),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Casa: ${staff[index].casa}"),
+                        Text("Especie: ${staff[index].especie}"),
+                        Text("Genero: ${staff[index].genero}"),
+                        Text(
+                            "Fecha de Nacimiento: ${staff[index].fechaDeNacimiento}"),
+                        Text("Linaje: ${staff[index].linaje}"),
+                        Text("Color de Ojos: ${staff[index].colorDeOjos}"),
+                        Text(
+                            "Color de Cabello: ${staff[index].colorDeCabello}"),
+                        Text("Patronus: ${staff[index].patronus}"),
+                        Text("Actor: ${staff[index].actor}"),
+                      ],
+                    ),
                   );
                 }))
       ]),

@@ -32,7 +32,22 @@ class ListaPersonajes extends StatelessWidget {
                         ? const Icon(Icons.error)
                         : Image.network(personajes[index].imagen),
                     title: Text(personajes[index].nombre),
-                    subtitle: Text(personajes[index].casa),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Casa: ${personajes[index].casa}"),
+                        Text("Especie: ${personajes[index].especie}"),
+                        Text("Genero: ${personajes[index].genero}"),
+                        Text(
+                            "Fecha de Nacimiento: ${personajes[index].fechaDeNacimiento}"),
+                        Text("Linaje: ${personajes[index].linaje}"),
+                        Text("Color de Ojos: ${personajes[index].colorDeOjos}"),
+                        Text(
+                            "Color de Cabello: ${personajes[index].colorDeCabello}"),
+                        Text("Patronus: ${personajes[index].patronus}"),
+                        Text("Actor: ${personajes[index].actor}"),
+                      ],
+                    ),
                   );
                 }))
       ]),

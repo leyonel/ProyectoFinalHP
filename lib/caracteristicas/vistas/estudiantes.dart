@@ -33,7 +33,23 @@ class ListaEstudiantes extends StatelessWidget {
                         ? const Icon(Icons.error)
                         : Image.network(estudiantes[index].imagen),
                     title: Text(estudiantes[index].nombre),
-                    subtitle: Text(estudiantes[index].casa),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Casa: ${estudiantes[index].casa}"),
+                        Text("Especie: ${estudiantes[index].especie}"),
+                        Text("Genero: ${estudiantes[index].genero}"),
+                        Text(
+                            "Fecha de Nacimiento: ${estudiantes[index].fechaDeNacimiento}"),
+                        Text("Linaje: ${estudiantes[index].linaje}"),
+                        Text(
+                            "Color de Ojos: ${estudiantes[index].colorDeOjos}"),
+                        Text(
+                            "Color de Cabello: ${estudiantes[index].colorDeCabello}"),
+                        Text("Patronus: ${estudiantes[index].patronus}"),
+                        Text("Actor: ${estudiantes[index].actor}"),
+                      ],
+                    ),
                   );
                 }))
       ]),
