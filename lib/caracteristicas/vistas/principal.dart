@@ -14,21 +14,37 @@ class VistaPrincipal extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-                onPressed: () {
-                  bloc.add(IrATodosLosPersonajes());
-                },
-                child: const Text("Personajes de Harry Potter",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(212, 19, 17, 17),
+              ),
+              child: TextButton(
+                  onPressed: () {
+                    bloc.add(IrATodosLosPersonajes());
+                  },
+                  child: const Text("Personajes de Harry Potter",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color.fromARGB(212, 216, 210, 210)))),
+            ),
             const SizedBox(height: 20),
-            TextButton(
-                onPressed: () {
-                  bloc.add(IrAHechizos());
-                },
-                child: const Text("Hechizos",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(212, 19, 17, 17),
+              ),
+              child: TextButton(
+                  onPressed: () {
+                    bloc.add(IrAHechizos());
+                  },
+                  child: const Text("Hechizos",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color.fromARGB(212, 216, 210, 210)))),
+            ),
             const SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(

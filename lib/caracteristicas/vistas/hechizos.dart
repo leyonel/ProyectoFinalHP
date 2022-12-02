@@ -27,6 +27,7 @@ class ListaHechizos extends StatelessWidget {
                 itemCount: hechizos.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    leading: Icon(Icons.auto_fix_high_sharp),
                     title: Text(hechizos[index].nombre),
                     subtitle: Text(hechizos[index].descripcion),
                   );
