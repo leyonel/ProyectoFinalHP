@@ -23,7 +23,9 @@ class VistaPrincipal extends StatelessWidget {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),
             const SizedBox(height: 20),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  bloc.add(IrAHechizos());
+                },
                 child: const Text("Hechizos",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16))),

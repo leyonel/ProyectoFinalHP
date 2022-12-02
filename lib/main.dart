@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyecto_hp_final/caracteristicas/bloc.dart';
+import 'package:proyecto_hp_final/caracteristicas/vistas/hechizos.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/personajes.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/principal.dart';
 
@@ -40,6 +41,9 @@ class Vista extends StatelessWidget {
         }
         if (estado is VerPersonajes) {
           return ListaPersonajes(personajes: estado.personajes);
+        }
+        if (estado is VerHechizos) {
+          return ListaHechizos(hechizos: estado.hechizos);
         }
         return const Center(child: Text("huye"));
       })),
