@@ -74,10 +74,26 @@ class VistaPrincipal extends StatelessWidget {
                   const Text("Empleados",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
-                  TextButton(onPressed: () {}, child: const Text("Gryffindor")),
-                  TextButton(onPressed: () {}, child: const Text("Slytherin")),
-                  TextButton(onPressed: () {}, child: const Text("Hafflepuff")),
-                  TextButton(onPressed: () {}, child: const Text("Ravenclaw")),
+                  TextButton(
+                      onPressed: () {
+                        bloc.add(IrAProfesores(casa: "gryffindor"));
+                      },
+                      child: const Text("Gryffindor")),
+                  TextButton(
+                      onPressed: () {
+                        bloc.add(IrAProfesores(casa: "slytherin"));
+                      },
+                      child: const Text("Slytherin")),
+                  TextButton(
+                      onPressed: () {
+                        bloc.add(IrAProfesores(casa: "hafflepuff"));
+                      },
+                      child: const Text("Hafflepuff")),
+                  TextButton(
+                      onPressed: () {
+                        bloc.add(IrAProfesores(casa: "ravenclaw"));
+                      },
+                      child: const Text("Ravenclaw")),
                 ],
               ),
             )

@@ -5,6 +5,7 @@ import 'package:proyecto_hp_final/caracteristicas/vistas/estudiantes.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/hechizos.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/personajes.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/principal.dart';
+import 'package:proyecto_hp_final/caracteristicas/vistas/profesores.dart';
 
 void main() {
   runApp(const AplicacionBloc());
@@ -49,6 +50,9 @@ class Vista extends StatelessWidget {
         if (estado is VerEstudiantes) {
           return ListaEstudiantes(
               estudiantes: estado.estudiantes, casa: estado.casa);
+        }
+        if (estado is VerProfesores) {
+          return ListaStaff(staff: estado.staff, casa: estado.casa);
         }
         return const Center(child: Text("huye"));
       })),
