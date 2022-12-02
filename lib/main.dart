@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyecto_hp_final/caracteristicas/bloc.dart';
+import 'package:proyecto_hp_final/caracteristicas/vistas/cargando.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/estudiantes.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/hechizos.dart';
 import 'package:proyecto_hp_final/caracteristicas/vistas/personajes.dart';
@@ -34,6 +35,7 @@ class Vista extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = context.read<HPBloc>();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Builder(builder: ((context) {
@@ -53,6 +55,9 @@ class Vista extends StatelessWidget {
         }
         if (estado is VerProfesores) {
           return ListaStaff(staff: estado.staff, casa: estado.casa);
+        }
+        if (estado is Inicial) {
+          return Cargando();
         }
         return const Center(child: Text("huye"));
       })),

@@ -52,9 +52,9 @@ class VistaPrincipal extends StatelessWidget {
                       child: const Text("Slytherin")),
                   TextButton(
                       onPressed: () {
-                        bloc.add(IrAEstudiantes(casa: "hafflepuff"));
+                        bloc.add(IrAEstudiantes(casa: "hufflepuff"));
                       },
-                      child: const Text("Hafflepuff")),
+                      child: const Text("Hufflepuff")),
                   TextButton(
                       onPressed: () {
                         bloc.add(IrAEstudiantes(casa: "ravenclaw"));
@@ -86,9 +86,9 @@ class VistaPrincipal extends StatelessWidget {
                       child: const Text("Slytherin")),
                   TextButton(
                       onPressed: () {
-                        bloc.add(IrAProfesores(casa: "hafflepuff"));
+                        bloc.add(IrAProfesores(casa: "hufflepuff"));
                       },
-                      child: const Text("Hafflepuff")),
+                      child: const Text("Hufflepuff")),
                   TextButton(
                       onPressed: () {
                         bloc.add(IrAProfesores(casa: "ravenclaw"));
